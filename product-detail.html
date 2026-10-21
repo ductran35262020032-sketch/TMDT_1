@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi tiết sản phẩm | RE-TREND</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={theme:{extend:{colors:{brand:{primary:'#0F382E',accent:'#E65C40',beige:'#F7F4EA',dark:'#141716',olive:'#4A6B5D',surface:'#FFFFFF'}},fontFamily:{sans:['"Plus Jakarta Sans"','sans-serif'],display:['"Space Grotesk"','sans-serif']}}}}</script>
+<style>body{background:#FAF8F2}.badge-a-plus{background:#065F46;color:#ECFDF5}.badge-a{background:#0369A1;color:#F0F9FF}.badge-b{background:#B45309;color:#FFFBEB}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#F1EEDA}::-webkit-scrollbar-thumb{background:#4A6B5D;border-radius:9999px}</style>
+</head><body class="text-neutral-800 antialiased font-sans selection:bg-brand-accent selection:text-white">
+  <!-- ================= 1. ANNOUNCEMENT BAR ================= -->
+  <div class="bg-brand-primary text-white text-xs py-2.5 px-4 font-medium flex justify-between items-center border-b border-brand-olive/40">
+    <div class="hidden lg:flex items-center space-x-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span>100% Đồ Si Khử Trùng Nhiệt & Tia UV • Phân Hạng Minh Bạch</span>
+    </div>
+    <div class="mx-auto lg:mx-0 flex items-center space-x-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+      <span><b>DROP HÀNG HÔM NAY:</b> 12:00 trưa & 20:00 tối — Mỗi mẫu chỉ có 1 chiếc độc bản!</span>
+    </div>
+    <div class="hidden md:flex items-center space-x-4 text-[11px]">
+      <a href="index.html#safepay" class="hover:text-brand-accent transition flex items-center">
+        <i class="fa-solid fa-shield-halved text-brand-accent mr-1"></i> Re-Trend SafePay™ 48h
+      </a>
+      <span>•</span>
+      <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> Hub Sư Vạn Hạnh, Q.10</span>
+    </div>
+  </div>
+
+  <!-- ================= 2. MAIN HEADER & NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-[#FAF8F2]/95 backdrop-blur-md border-b border-neutral-200/80 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center space-x-2.5 group">
+        <div class="w-11 h-11 bg-brand-primary rounded-2xl flex items-center justify-center text-white font-display font-black text-2xl shadow-md group-hover:bg-brand-accent transition duration-300">
+          R
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-2xl tracking-tight text-brand-dark">RE-TREND<span class="text-brand-accent">.</span></span>
+          <span class="block text-[10px] font-bold text-brand-olive tracking-widest uppercase">Circular Fashion</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center space-x-7 font-bold text-sm text-neutral-700">
+        <a href="index.html#catalog" class="hover:text-brand-accent transition">Săn Đồ Tuyển Chọn</a>
+        <a href="index.html#live-shopping" class="flex items-center text-brand-accent hover:opacity-80 transition">
+          <span class="w-2 h-2 bg-red-500 rounded-full animate-ping mr-1.5"></span>
+          Live Shopping
+        </a>
+        <a href="index.html#consign" class="hover:text-brand-accent transition">Dọn Tủ Ký Gửi (FBR)</a>
+        <a href="index.html#safepay" class="hover:text-brand-accent transition">Bảo Vệ SafePay™</a>
+        <a href="index.html#hub" class="hover:text-brand-accent transition">Trạm Hub Q.10</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center space-x-3.5">
+        <!-- Search Trigger -->
+        <button onclick="window.location.href='index.html#catalog'" class="w-10 h-10 rounded-xl bg-white border border-neutral-200 text-neutral-600 hover:text-brand-dark hover:border-neutral-400 flex items-center justify-center transition shadow-sm">
+          <i class="fa-solid fa-magnifying-glass text-sm"></i>
+        </button>
+
+        <!-- Cart Button -->
+        <button onclick="window.location.href='index.html#catalog'" class="relative w-10 h-10 rounded-xl bg-white border border-neutral-200 text-neutral-600 hover:text-brand-dark hover:border-neutral-400 flex items-center justify-center transition shadow-sm">
+          <i class="fa-solid fa-bag-shopping text-sm"></i>
+          <span id="cartBadge" class="absolute -top-1.5 -right-1.5 bg-brand-accent text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow">2</span>
+        </button>
+
+        <!-- CTA Consign -->
+        <a href="index.html#calculator" class="hidden sm:inline-flex items-center bg-brand-accent hover:bg-orange-600 text-white font-bold text-xs px-5 py-3 rounded-xl shadow-md transition transform active:scale-95">
+          <i class="fa-solid fa-box-open mr-2"></i> Ký Gửi Đồ Cũ
+        </a>
+      </div>
+    </div>
+  </header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+<nav class="text-xs text-neutral-500 mb-7 flex items-center gap-2"><a href="index.html" class="hover:text-brand-accent">Trang chủ</a><i class="fa-solid fa-chevron-right text-[9px]"></i><a href="index.html#catalog" class="hover:text-brand-accent">Bộ sưu tập tuyển chọn</a><i class="fa-solid fa-chevron-right text-[9px]"></i><span id="crumbTitle" class="text-brand-primary font-bold">Chi tiết sản phẩm</span></nav>
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
+<div><div class="rounded-3xl overflow-hidden bg-[#F3EFE6] border border-neutral-200"><img id="productImage" src="" alt="" class="w-full aspect-[4/5] object-cover"></div><div class="mt-4 flex items-center gap-2 text-xs font-semibold text-brand-primary"><i class="fa-solid fa-shield-halved text-brand-accent"></i> Đã qua tuyển chọn • Kiểm tra tình trạng minh bạch</div></div>
+<div class="bg-white/70 rounded-3xl border border-neutral-200 p-6 sm:p-9 lg:sticky lg:top-28">
+<div class="flex items-center justify-between gap-3"><span id="productCategory" class="text-xs font-extrabold tracking-[0.18em] uppercase text-brand-accent"></span><span id="productTag" class="text-[10px] font-bold bg-neutral-900 text-white px-3 py-1.5 rounded-full"></span></div>
+<h1 id="productTitle" class="font-display text-3xl sm:text-4xl font-extrabold text-brand-dark leading-tight mt-3"></h1>
+<div class="flex flex-wrap items-center gap-2 mt-5"><span id="productCondition" class="text-xs font-extrabold px-3 py-1.5 rounded-full"></span><span class="text-xs bg-[#F7F4EA] border border-neutral-200 text-neutral-600 px-3 py-1.5 rounded-full"><i class="fa-solid fa-shirt mr-1 text-brand-olive"></i> Sản phẩm tuyển chọn</span></div>
+<div class="mt-6 flex items-end gap-3"><span id="productPrice" class="font-display font-extrabold text-3xl text-brand-accent"></span><span id="productOldPrice" class="text-sm text-neutral-400 line-through mb-1"></span><span class="ml-auto text-[10px] font-bold text-brand-olive bg-emerald-50 px-2.5 py-1.5 rounded-lg">GIÁ TUYỂN CHỌN</span></div>
+<p id="productDescription" class="text-sm text-neutral-600 leading-7 mt-6"></p>
+<div class="mt-6 rounded-2xl bg-[#FAF8F2] border border-neutral-200 p-5"><h2 class="font-bold text-sm text-brand-dark mb-4"><i class="fa-solid fa-ruler-combined text-brand-accent mr-2"></i>Thông tin sản phẩm</h2><ul id="productSpecs" class="space-y-3 text-sm text-neutral-600"></ul></div>
+<div class="mt-5 space-y-3 text-xs text-neutral-600"><p><i class="fa-solid fa-spray-can-sparkles text-emerald-700 mr-2"></i>Được làm sạch và xử lý theo quy trình tuyển chọn Re-Trend.</p><p><i class="fa-solid fa-box-open text-brand-accent mr-2"></i>Đóng gói cẩn thận, sẵn sàng giao hàng.</p><p><i class="fa-solid fa-shield-halved text-brand-primary mr-2"></i>Thông tin giao dịch được giới thiệu với cơ chế bảo vệ SafePay™.</p></div>
+<div class="mt-7 flex flex-col sm:flex-row gap-3"><button id="addProduct" class="flex-1 bg-brand-primary hover:bg-brand-dark text-white font-bold text-sm py-4 px-5 rounded-xl transition shadow-md"><i class="fa-solid fa-bag-shopping mr-2"></i>Thêm vào giỏ hàng</button><a href="index.html#catalog" class="inline-flex justify-center items-center border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-bold text-sm py-4 px-5 rounded-xl transition"><i class="fa-solid fa-arrow-left mr-2"></i>Tiếp tục xem đồ</a></div>
+<p id="cartFeedback" class="hidden mt-3 text-sm text-emerald-800 font-bold"><i class="fa-solid fa-circle-check mr-1"></i>Đã thêm sản phẩm vào giỏ hàng</p>
+</div></section>
+<section class="mt-20"><div class="flex items-end justify-between gap-4 mb-7"><div><p class="text-xs font-extrabold tracking-[0.2em] uppercase text-brand-accent">Mix & Match cùng Re-Trend</p><h2 class="font-display text-2xl sm:text-3xl font-extrabold text-brand-dark mt-2">Sản phẩm liên quan</h2><p class="text-sm text-neutral-500 mt-2">Thêm lựa chọn để hoàn thiện phong cách của bạn.</p></div><a href="index.html#catalog" class="hidden sm:inline-flex text-sm font-bold text-brand-primary hover:text-brand-accent">Xem toàn bộ bộ sưu tập <i class="fa-solid fa-arrow-right ml-2"></i></a></div><div id="relatedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div></section><div class="mt-14 rounded-3xl bg-brand-primary text-white p-7 sm:p-9 flex flex-col md:flex-row md:items-center justify-between gap-5"><div><p class="text-xs font-bold tracking-widest text-emerald-200 uppercase">Re-Trend Circular Fashion</p><h2 class="font-display text-2xl font-extrabold mt-2">Đồ cũ chất riêng, vòng đời mới.</h2><p class="text-sm text-white/75 mt-2">Khám phá thêm những món đồ second-hand được tuyển chọn.</p></div><a href="index.html#catalog" class="inline-flex items-center justify-center bg-brand-accent hover:bg-orange-600 text-white text-sm font-bold px-5 py-3 rounded-xl">Khám phá bộ sưu tập <i class="fa-solid fa-arrow-right ml-2"></i></a></div>
+</main>
+  <!-- ================= 10. FOOTER ================= -->
+  <footer class="bg-brand-dark text-white pt-16 pb-12 border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+      
+      <!-- Col 1 -->
+      <div class="space-y-4">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-9 h-9 bg-brand-accent rounded-xl flex items-center justify-center font-display font-extrabold text-xl text-white">R</div>
+          <span class="font-display font-extrabold text-xl tracking-tight">RE-TREND<span class="text-brand-accent">.</span></span>
+        </div>
+        <p class="text-xs text-neutral-400 leading-relaxed">
+          Nền tảng thương mại điện tử chuyên biệt thời trang second-hand tuyển chọn, bảo vệ giao dịch và thúc đẩy tiêu dùng thời trang tuần hoàn văn minh tại Việt Nam.
+        </p>
+        <div class="text-xs text-neutral-400 space-y-1">
+          <p><b>Đơn vị nghiên cứu:</b> Trường Kinh doanh UEH</p>
+          <p><b>Học phần:</b> Thương mại điện tử (GVHD: TS. Thái Kim Phụng)</p>
+          <p><b>Nhóm thực hiện:</b> Nhóm 05 – Dự án Re-Trend</p>
+        </div>
+      </div>
+
+      <!-- Col 2 -->
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-sm tracking-wider uppercase text-neutral-200">Khám Phá Nền Tảng</h4>
+        <ul class="text-xs text-neutral-400 space-y-2">
+          <li><a href="index.html#catalog" class="hover:text-white transition">Săn đồ si tuyển chọn (B2C)</a></li>
+          <li><a href="index.html#consign" class="hover:text-white transition">Dịch vụ dọn tủ trọn gói (FBR)</a></li>
+          <li><a href="index.html#live-shopping" class="hover:text-white transition">Lịch phát sóng Livestream</a></li>
+          <li><a href="index.html#safepay" class="hover:text-white transition">Cơ chế Ký quỹ SafePay™</a></li>
+          <li><a href="index.html#calculator" class="hover:text-white transition">Bảng tính tiền thanh lý đồ cũ</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-sm tracking-wider uppercase text-neutral-200">Hub & Trạm Drop-off</h4>
+        <p class="text-xs text-neutral-400 leading-relaxed">
+          <b>Hub Sài Gòn (150m²):</b> Mặt tiền đường Sư Vạn Hạnh, Phường 12, Quận 10, TP. Hồ Chí Minh.<br>
+          (Khu vực tiếp nhận đồ ký gửi tự động & Showroom thử đồ thông minh).
+        </p>
+        <p class="text-xs text-neutral-400">
+          <b>Email:</b> support@retrend.vn<br>
+          <b>Hotline Trọng tài SafePay:</b> 1900 xxxx (Hỗ trợ 24/7)
+        </p>
+      </div>
+
+      <!-- Col 4 -->
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-sm tracking-wider uppercase text-neutral-200">Tuân Thủ Pháp Lý</h4>
+        <p class="text-xs text-neutral-400 leading-relaxed">
+          Đăng ký Sàn giao dịch TMĐT tuân thủ Nghị định 52/2013/NĐ-CP & Nghị định 85/2021/NĐ-CP. Bảo mật dữ liệu cá nhân theo Nghị định 13/2023/NĐ-CP.
+        </p>
+        <div class="pt-2 flex items-center space-x-4 text-2xl text-neutral-400">
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-neutral-800 text-center text-xs text-neutral-500">
+      © 2026 Dự án RE-TREND. Bản quyền thuộc về Nhóm 05 – Khoa Kinh doanh Quốc tế - Marketing, Trường Kinh doanh UEH.
+    </div>
+  </footer><script>
+const PRODUCTS = {"denim": {"category": "ÁO KHOÁC DENIM", "title": "Áo Khoác Bò Vintage Sờn Rách Gấu", "short": "Áo Khoác Bò Vintage Levi's", "price": 240000, "priceText": "240.000đ", "old": "750.000đ", "condition": "Hạng A+ (98%)", "tag": "Levi's 90s", "img": "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=1000&q=85", "thumb": "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=300&q=80", "specs": ["Dài áo: 62 cm", "Vòng ngực: 104 cm", "Vai: 46 cm", "Phong cách: Vintage / Y2K"], "desc": "Áo khoác denim vintage với hiệu ứng sờn rách cá tính, dễ phối cùng áo thun basic, quần jeans hoặc chân váy. Mỗi sản phẩm là một món đồ tuyển chọn độc bản."}, "nirvana": {"category": "GRAPHIC TEE", "title": "Áo Thun Nirvana Rock Band Oversize", "short": "Áo Thun Nirvana Rock Band", "price": 160000, "priceText": "160.000đ", "old": "390.000đ", "condition": "Hạng A (90%)", "tag": "Made in USA", "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85", "thumb": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=300&q=80", "specs": ["Dài áo: 70 cm", "Vòng ngực: 112 cm", "Chất liệu: Cotton 100%", "Phom dáng: Oversize"], "desc": "Áo thun graphic mang tinh thần rock cổ điển, phom oversize thoải mái và dễ kết hợp với denim, cargo pants hoặc sneakers."}, "flannel": {"category": "SƠ MI FLANNEL", "title": "Sơ Mi Dạ Caro Rêu Unisex Dày Dặn", "short": "Sơ Mi Dạ Caro Uniqlo Nhật", "price": 185000, "priceText": "185.000đ", "old": "520.000đ", "condition": "Hạng A+ (96%)", "tag": "Uniqlo Nhật", "img": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1000&q=85", "thumb": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=300&q=80", "specs": ["Dài áo: 67 cm", "Vòng ngực: 106 cm", "Vai: 48 cm", "Phom dáng: Unisex"], "desc": "Sơ mi flannel caro tông rêu dễ mặc quanh năm. Có thể mặc riêng hoặc khoác ngoài áo thun để tạo lớp phối đồ casual, vintage."}, "gorpcore": {"category": "TRỌN BỘ PHỐI SẴN", "title": "Combo Gorpcore: Parachute Pants + Tee", "short": "Combo Gorpcore Parachute Pants", "price": 349000, "priceText": "349.000đ", "old": "890.000đ", "condition": "Hạng A (90%)", "tag": "Stylist Pick", "img": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=85", "thumb": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=300&q=80", "specs": ["Set phối sẵn theo phong cách Gorpcore", "Gồm quần Parachute + áo thun", "Tặng kèm móc khóa Paracord", "Phù hợp phong cách streetwear"], "desc": "Set phối sẵn cho những ngày muốn lên đồ nhanh nhưng vẫn nổi bật. Kết hợp tinh thần outdoor với streetwear hiện đại, có phụ kiện đi kèm theo mô tả."}};
+const currentId = new URLSearchParams(window.location.search).get('id') || 'denim';
+const product = PRODUCTS[currentId] || PRODUCTS.denim;
+const money = n => new Intl.NumberFormat('vi-VN').format(n) + 'đ';
+document.title = product.title + ' | RE-TREND';
+document.getElementById('crumbTitle').textContent = product.title;
+document.getElementById('productImage').src = product.img;
+document.getElementById('productImage').alt = product.title;
+document.getElementById('productCategory').textContent = product.category;
+document.getElementById('productTag').textContent = product.tag;
+document.getElementById('productTitle').textContent = product.title;
+document.getElementById('productCondition').textContent = product.condition;
+document.getElementById('productCondition').className = 'text-xs font-extrabold px-3 py-1.5 rounded-full ' + (product.condition.includes('A+') ? 'badge-a-plus' : product.condition.includes('A (') ? 'badge-a' : 'badge-b');
+document.getElementById('productPrice').textContent = product.priceText;
+document.getElementById('productOldPrice').textContent = product.old;
+document.getElementById('productDescription').textContent = product.desc;
+document.getElementById('productSpecs').innerHTML = product.specs.map(s => '<li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-700 mt-1"></i><span>'+s+'</span></li>').join('');
+document.getElementById('addProduct').addEventListener('click', () => {
+  const cart = JSON.parse(localStorage.getItem('retrendCart') || '[]');
+  const existing = cart.find(item => item.id === currentId);
+  if (existing) existing.quantity = (existing.quantity || 1) + 1;
+  else cart.push({id:currentId,title:product.short,price:product.price,condition:product.condition,image:product.thumb,quantity:1});
+  localStorage.setItem('retrendCart', JSON.stringify(cart));
+  document.getElementById('cartFeedback').classList.remove('hidden');
+});
+const relatedIds = Object.keys(PRODUCTS).filter(id => id !== currentId);
+document.getElementById('relatedGrid').innerHTML = relatedIds.map(id => { const p=PRODUCTS[id]; return `<a href="product-detail.html?id=${id}" class="group bg-white rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-xl transition"><div class="aspect-[4/5] overflow-hidden bg-[#F3EFE6]"><img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div><div class="p-4"><p class="text-[10px] font-bold tracking-widest text-brand-olive uppercase">${p.category}</p><h3 class="font-bold text-sm text-brand-dark mt-1 leading-snug">${p.title}</h3><div class="mt-3 flex items-center justify-between"><span class="font-extrabold text-brand-accent">${p.priceText}</span><span class="text-xs text-brand-primary font-bold">Xem <i class="fa-solid fa-arrow-right ml-1"></i></span></div></div></a>`; }).join('');
+</script><script>document.getElementById('searchBtn')?.addEventListener('click',()=>{});</script>
+</body></html>

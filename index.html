@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RE-TREND | Nền Tảng Thời Trang Second-Hand Tuyển Chọn</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#0F382E', 
+              accent: '#E65C40',  
+              beige: '#F7F4EA',   
+              dark: '#141716',
+              olive: '#4A6B5D',
+              surface: '#FFFFFF'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #FAF8F2; }
+    .badge-a-plus { background-color: #065F46; color: #ECFDF5; }
+    .badge-a { background-color: #0369A1; color: #F0F9FF; }
+    .badge-b { background-color: #B45309; color: #FFFBEB; }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #F1EEDA; }
+    ::-webkit-scrollbar-thumb { background: #4A6B5D; border-radius: 9999px; }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.03); }
+    }
+    .animate-badge { animation: pulse-subtle 2s infinite ease-in-out; }
+  </style>
+</head>
+<body class="text-neutral-800 antialiased font-sans selection:bg-brand-accent selection:text-white">
+
+  <!-- ================= 1. ANNOUNCEMENT BAR ================= -->
+  <div class="bg-brand-primary text-white text-xs py-2.5 px-4 font-medium flex justify-between items-center border-b border-brand-olive/40">
+    <div class="hidden lg:flex items-center space-x-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span>100% Đồ Si Khử Trùng Nhiệt & Tia UV • Phân Hạng Minh Bạch</span>
+    </div>
+    <div class="mx-auto lg:mx-0 flex items-center space-x-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+      <span><b>DROP HÀNG HÔM NAY:</b> 12:00 trưa & 20:00 tối — Mỗi mẫu chỉ có 1 chiếc độc bản!</span>
+    </div>
+    <div class="hidden md:flex items-center space-x-4 text-[11px]">
+      <a href="#safepay" class="hover:text-brand-accent transition flex items-center">
+        <i class="fa-solid fa-shield-halved text-brand-accent mr-1"></i> Re-Trend SafePay™ 48h
+      </a>
+      <span>•</span>
+      <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> Hub Sư Vạn Hạnh, Q.10</span>
+    </div>
+  </div>
+
+  <!-- ================= 2. MAIN HEADER & NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-[#FAF8F2]/95 backdrop-blur-md border-b border-neutral-200/80 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-2.5 group">
+        <div class="w-11 h-11 bg-brand-primary rounded-2xl flex items-center justify-center text-white font-display font-black text-2xl shadow-md group-hover:bg-brand-accent transition duration-300">
+          R
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-2xl tracking-tight text-brand-dark">RE-TREND<span class="text-brand-accent">.</span></span>
+          <span class="block text-[10px] font-bold text-brand-olive tracking-widest uppercase">Circular Fashion</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center space-x-7 font-bold text-sm text-neutral-700">
+        <a href="#catalog" class="hover:text-brand-accent transition">Săn Đồ Tuyển Chọn</a>
+        <a href="#live-shopping" class="flex items-center text-brand-accent hover:opacity-80 transition">
+          <span class="w-2 h-2 bg-red-500 rounded-full animate-ping mr-1.5"></span>
+          Live Shopping
+        </a>
+        <a href="#consign" class="hover:text-brand-accent transition">Dọn Tủ Ký Gửi (FBR)</a>
+        <a href="#safepay" class="hover:text-brand-accent transition">Bảo Vệ SafePay™</a>
+        <a href="#hub" class="hover:text-brand-accent transition">Trạm Hub Q.10</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center space-x-3.5">
+        <!-- Search Trigger -->
+        <button onclick="openSearchModal()" class="w-10 h-10 rounded-xl bg-white border border-neutral-200 text-neutral-600 hover:text-brand-dark hover:border-neutral-400 flex items-center justify-center transition shadow-sm">
+          <i class="fa-solid fa-magnifying-glass text-sm"></i>
+        </button>
+
+        <!-- Cart Button -->
+        <button onclick="toggleCartDrawer()" class="relative w-10 h-10 rounded-xl bg-white border border-neutral-200 text-neutral-600 hover:text-brand-dark hover:border-neutral-400 flex items-center justify-center transition shadow-sm">
+          <i class="fa-solid fa-bag-shopping text-sm"></i>
+          <span id="cartBadge" class="absolute -top-1.5 -right-1.5 bg-brand-accent text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow">2</span>
+        </button>
+
+        <!-- CTA Consign -->
+        <a href="#calculator" class="hidden sm:inline-flex items-center bg-brand-accent hover:bg-orange-600 text-white font-bold text-xs px-5 py-3 rounded-xl shadow-md transition transform active:scale-95">
+          <i class="fa-solid fa-box-open mr-2"></i> Ký Gửi Đồ Cũ
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 3. HERO SECTION ================= -->
+  <section class="relative overflow-hidden pt-10 pb-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Hero Text -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-900 border border-emerald-300 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-leaf text-brand-accent"></i>
+          <span>Thời Trang Gen Z</span>
+        </div>
+        
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight tracking-tight">
+          MẶC ĐỘC BẢN <br>
+          <span class="text-brand-accent decoration-wavy decoration-emerald-500">SẠCH THƠM CHUẨN GU</span>
+        </h1>
+
+        <p class="text-neutral-600 text-base sm:text-lg max-w-xl leading-relaxed">
+          Nền tảng thời trang second-hand tiên phong kết hợp <b>quy trình 5 bước giặt hấp khử khuẩn UV</b>, phân hạng minh bạch chuẩn xác và <b>cơ chế ký quỹ Re-Trend SafePay™</b> giữ tiền 48h – xoá tan nỗi sợ mua phải đồ rách bẩn hay lừa cọc online.
+        </p>
+
+        <!-- Action CTA buttons -->
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#catalog" class="bg-brand-primary hover:bg-brand-dark text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition flex items-center">
+            <i class="fa-solid fa-shirt mr-2"></i> Khám Phá Drop Đồ Si Mới
+          </a>
+          <a href="#calculator" class="bg-white hover:bg-neutral-100 text-brand-dark font-bold px-6 py-3.5 rounded-xl border border-neutral-300 shadow-sm transition flex items-center">
+            <i class="fa-solid fa-calculator text-brand-accent mr-2"></i> Tính Tiền Dọn Tủ Ký Gửi
+          </a>
+        </div>
+
+        <!-- 3 Core Trust Badges -->
+        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-neutral-200">
+          <div>
+            <div class="font-display font-extrabold text-2xl text-brand-primary">100%</div>
+            <div class="text-xs text-neutral-500 font-medium">Giặt sấy diệt khuẩn tia cực tím UV</div>
+          </div>
+          <div>
+            <div class="font-display font-extrabold text-2xl text-brand-primary">48 Giờ</div>
+            <div class="text-xs text-neutral-500 font-medium">Mặc thử đổi trả với SafePay™</div>
+          </div>
+          <div>
+            <div class="font-display font-extrabold text-2xl text-brand-primary">Chuẩn cm</div>
+            <div class="text-xs text-neutral-500 font-medium">Đo chi tiết vai, ngực, eo, dài</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Hero Interactive Showcase Card -->
+      <div class="lg:col-span-5 relative">
+        <div class="relative mx-auto max-w-md bg-white p-5 rounded-3xl shadow-2xl border border-neutral-200/90">
+          <div class="relative overflow-hidden rounded-2xl bg-neutral-100 aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Y2K Aesthetic Look" class="w-full h-full object-cover">
+            
+            <div class="absolute top-3 left-3 bg-brand-dark/85 backdrop-blur text-white text-[11px] font-bold px-3 py-1 rounded-full">
+              🔥 Drop #094 • Còn 1 chiếc duy nhất
+            </div>
+            
+            <div class="absolute top-3 right-3 badge-a-plus text-[11px] font-bold px-3 py-1 rounded-full shadow-md animate-badge">
+              Hạng A+ (Mới 98%)
+            </div>
+
+            <!-- Card Bottom Spec -->
+            <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-neutral-200/80 shadow-md">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-bold text-sm text-brand-dark">Set Varsity 90s + Baggy Cargo</h4>
+                  <p class="text-xs text-neutral-500 font-mono mt-0.5">Dài: 68cm • Ngực: 110cm • Eo: 74cm</p>
+                </div>
+                <div class="text-right">
+                  <div class="text-brand-accent font-extrabold text-base">320.000đ</div>
+                  <div class="text-[10px] text-neutral-400 line-through">Gốc ~ 1.150k</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center justify-between text-xs text-neutral-600 px-1">
+            <span class="flex items-center"><i class="fa-solid fa-store text-emerald-600 mr-1.5"></i> Sẵn hàng thử tại Hub Q.10</span>
+            <button onclick="event.stopPropagation(); addItemToCart('Set Varsity 90s + Baggy Cargo', 320000, 'Hạng A+ (98%)', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=200&q=80')" class="text-brand-primary hover:text-brand-accent font-extrabold transition">
+              + Thêm vào giỏ hàng
+            </button>
+          </div>
+        </div>
+
+        <!-- Floating Green Impact Widget -->
+        <!-- <div class="absolute -bottom-5 -left-5 bg-brand-primary text-white p-4 rounded-2xl shadow-xl hidden sm:flex items-center space-x-3 border border-white/20">
+          <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center font-bold text-lg text-emerald-300">
+            <i class="fa-solid fa-droplet"></i>
+          </div>
+          <div class="text-xs">
+            <p class="font-bold">Tiết kiệm 2.700L nước sạch</p>
+            <p class="text-emerald-200">với mỗi chiếc áo si được tái sinh</p>
+          </div>
+        </div> -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 4. LIVE SHOPPING & DROP FLASH SALE ================= -->
+  <section id="live-shopping" class="bg-brand-primary text-white py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-10 backdrop-blur-md grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Live info -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center bg-red-600 text-white text-xs font-extrabold px-3.5 py-1 rounded-full animate-pulse shadow">
+            <span class="w-2 h-2 bg-white rounded-full mr-2"></span> ĐANG PHÁT TRỰC TIẾP TRÊN WEB & APP RE-TREND
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold leading-tight">
+            LIVESTREAM PHỐI ĐỒ: “SĂN DEAL ĐỒ SI Y2K ĐỒNG GIÁ 49K”
+          </h2>
+          <p class="text-neutral-200 text-sm leading-relaxed">
+            Host Stylist mặc mẫu trực tiếp, xoay 360 độ soi chất vải, đo đạc kích thước theo yêu cầu của bạn qua chat. Nút "Chốt đơn" giữ hàng độc quyền trong 5 phút!
+          </p>
+          
+          <!-- Countdown Timer -->
+          <div class="flex items-center space-x-3 pt-2">
+            <div class="bg-white/15 px-4 py-2.5 rounded-xl text-center min-w-[65px] border border-white/20">
+              <span id="timerHours" class="font-mono font-bold text-2xl">01</span>
+              <span class="block text-[9px] uppercase tracking-wider text-neutral-300">Giờ</span>
+            </div>
+            <span class="font-bold text-xl">:</span>
+            <div class="bg-white/15 px-4 py-2.5 rounded-xl text-center min-w-[65px] border border-white/20">
+              <span id="timerMins" class="font-mono font-bold text-2xl">38</span>
+              <span class="block text-[9px] uppercase tracking-wider text-neutral-300">Phút</span>
+            </div>
+            <span class="font-bold text-xl">:</span>
+            <div class="bg-white/15 px-4 py-2.5 rounded-xl text-center min-w-[65px] border border-white/20">
+              <span id="timerSecs" class="font-mono font-bold text-2xl">45</span>
+              <span class="block text-[9px] uppercase tracking-wider text-neutral-300">Giây</span>
+            </div>
+            <div class="pl-3 text-xs text-emerald-300 font-medium">
+              cho đến khung giờ Drop đồ si tối nay (20:00)
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulated Live Player & Interaction -->
+        <div class="lg:col-span-5 bg-neutral-900 rounded-2xl overflow-hidden border border-white/20 shadow-2xl relative aspect-[4/3] flex flex-col justify-between p-4">
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80" alt="Livestream Host" class="absolute inset-0 w-full h-full object-cover opacity-60">
+          
+          <!-- Live Overlay Header -->
+          <div class="relative z-10 flex justify-between items-center text-xs">
+            <span class="bg-red-600 text-white font-bold px-2.5 py-1 rounded-md flex items-center">
+              <span class="w-1.5 h-1.5 bg-white rounded-full mr-1.5 animate-ping"></span> LIVE
+            </span>
+            <span class="bg-black/60 backdrop-blur px-2.5 py-1 rounded-md text-white font-mono">
+              <i class="fa-solid fa-eye text-red-400 mr-1"></i> 1,482 bạn đang xem
+            </span>
+          </div>
+
+          <!-- Live Chat Stream Simulator -->
+          <div id="liveChatBox" class="relative z-10 space-y-1.5 text-[11px] max-h-32 overflow-hidden flex flex-col justify-end">
+            <div class="bg-black/60 backdrop-blur px-3 py-1 rounded-lg text-white max-w-xs">
+              <b>@quynhanh_ueh:</b> Áo khoác da lộn có vừa eo 68 không ạ?
+            </div>
+            <div class="bg-black/60 backdrop-blur px-3 py-1 rounded-lg text-white max-w-xs">
+              <b>@minhduc99:</b> Vừa chốt combo gorpcore giá hời quá!
+            </div>
+          </div>
+
+          <!-- Live CTA -->
+          <div class="relative z-10 pt-2 flex gap-2">
+            <button onclick="alert('Bạn đã vào phòng Livestream chốt đơn tương tác của Re-Trend!')" class="flex-1 bg-brand-accent hover:bg-orange-600 text-white text-xs font-bold py-2.5 rounded-xl shadow transition text-center">
+              <i class="fa-solid fa-play mr-1"></i> Tham Gia Phòng Live
+            </button>
+            <button onclick="showQuickToast('Đã gửi tim cổ vũ Stylist Re-Trend! ❤️')" class="w-10 bg-white/20 hover:bg-white/30 text-white rounded-xl flex items-center justify-center transition">
+              <i class="fa-solid fa-heart text-red-400"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. QUY TRÌNH 5 BƯỚC & THANG CONDITION SCORE ================= -->
+  <section class="py-16 bg-[#F3EFE6] border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold tracking-wider uppercase text-brand-accent">Tiêu Chuẩn Vận Hành Độc Quyền</span>
+        <h2 class="font-display text-3xl font-extrabold text-brand-dark mt-1">QUY TRÌNH 5 BƯỚC KHÉP KÍN TẠI HUB</h2>
+        <p class="text-neutral-600 text-sm mt-2 whitespace-nowrap">Chúng tôi không bán đồ si xô bồ. Từng chiếc quần, chiếc áo đều được chăm sóc bài bản trước khi gửi đến bạn.</p>
+      </div>
+
+      <!-- 5 Step Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-neutral-200 hover:shadow-md transition text-center">
+          <div class="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center mx-auto mb-3 font-display font-bold text-lg">1</div>
+          <h4 class="font-bold text-sm text-brand-dark mb-1">Tuyển Chọn Nước Đầu</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">Chọn lọc tép 1 kiện Nhật, Hàn, Mỹ và đồ ký gửi từ tủ đồ sinh viên.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-neutral-200 hover:shadow-md transition text-center">
+          <div class="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center mx-auto mb-3 font-display font-bold text-lg">2</div>
+          <h4 class="font-bold text-sm text-brand-dark mb-1">Khử Khuẩn Sinh Học</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">Giặt hấp tinh dầu tự nhiên, sấy nhiệt và khử trùng bằng tia cực tím UV.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-neutral-200 hover:shadow-md transition text-center">
+          <div class="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center mx-auto mb-3 font-display font-bold text-lg">3</div>
+          <h4 class="font-bold text-sm text-brand-dark mb-1">Đo Đạc Chuẩn Từng cm</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">Đo chuẩn xác kích thước. Gắn tag mã vạch định danh.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-neutral-200 hover:shadow-md transition text-center">
+          <div class="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center mx-auto mb-3 font-display font-bold text-lg">4</div>
+          <h4 class="font-bold text-sm text-brand-dark mb-1">Chụp Studio Trung Thực</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">Chụp ảnh ánh sáng chuẩn, zoom cận sợi vải, khoanh đỏ tì vết nhỏ nếu có.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-neutral-200 hover:shadow-md transition text-center">
+          <div class="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center mx-auto mb-3 font-display font-bold text-lg">5</div>
+          <h4 class="font-bold text-sm text-brand-dark mb-1">Bao Bì Sinh Học</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">Đóng gói hộp kraft tái chế và túi tinh bột sắn tự phân hủy thân thiện môi trường.</p>
+        </div>
+      </div>
+
+      <!-- Condition Score Guide Bar -->
+      <div class="mt-8 bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="border-l-4 border-emerald-600 pl-4">
+          <span class="badge-a-plus text-xs font-bold px-2 py-0.5 rounded">HẠNG A+ (95% – 99%)</span>
+          <h5 class="font-bold text-sm mt-1.5 text-brand-dark">Pristine / Like New</h5>
+          <p class="text-xs text-neutral-500 mt-1">Còn tag vải/giấy hoặc mới chỉ mặc 1 lần chụp lookbook. Bao đổi trả miễn phí trong 48h.</p>
+        </div>
+        <div class="border-l-4 border-sky-600 pl-4">
+          <span class="badge-a text-xs font-bold px-2 py-0.5 rounded">HẠNG A (85% – 94%)</span>
+          <h5 class="font-bold text-sm mt-1.5 text-brand-dark">Excellent Used</h5>
+          <p class="text-xs text-neutral-500 mt-1">Đã qua sử dụng nhưng giữ gìn cực kỳ cẩn thận. Màu sắc tươi sáng, phom vải nguyên vẹn.</p>
+        </div>
+        <div class="border-l-4 border-amber-600 pl-4">
+          <span class="badge-b text-xs font-bold px-2 py-0.5 rounded">HẠNG B (75% – 84%)</span>
+          <h5 class="font-bold text-sm mt-1.5 text-brand-dark">Good / Vintage Aesthetic</h5>
+          <p class="text-xs text-neutral-500 mt-1">Có độ sờn phai màu nghệ thuật tự nhiên. Khiếm khuyết nhỏ được chụp cận cảnh minh bạch.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 6. PRODUCT CATALOG VỚI SMART FILTER ================= -->
+  <section id="catalog" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+      <div>
+        <span class="text-xs font-bold tracking-wider uppercase text-brand-accent">Sản Phẩm Độc Bản</span>
+        <h2 class="font-display text-3xl font-extrabold text-brand-dark">BỘ SƯU TẬP TUYỂN CHỌN HÔM NAY</h2>
+        <p class="text-neutral-500 text-sm mt-1">Mỗi món đồ chỉ có 1 chiếc duy nhất. Đã đo đạc và khử khuẩn sẵn sàng giao ngay.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap gap-2 mt-4 md:mt-0" id="filterContainer">
+        <button onclick="applyFilter('all')" class="cat-btn active bg-brand-primary text-white text-xs font-bold px-4 py-2.5 rounded-full shadow transition">Tất Cả</button>
+        <button onclick="applyFilter('y2k')" class="cat-btn bg-white text-neutral-700 hover:bg-neutral-100 text-xs font-bold px-4 py-2.5 rounded-full border border-neutral-300 transition">Y2K / Retro</button>
+        <button onclick="applyFilter('flannel')" class="cat-btn bg-white text-neutral-700 hover:bg-neutral-100 text-xs font-bold px-4 py-2.5 rounded-full border border-neutral-300 transition">Sơ Mi Flannel</button>
+        <button onclick="applyFilter('tshirt')" class="cat-btn bg-white text-neutral-700 hover:bg-neutral-100 text-xs font-bold px-4 py-2.5 rounded-full border border-neutral-300 transition">Áo Thun Mỹ</button>
+        <button onclick="applyFilter('pants')" class="cat-btn bg-white text-neutral-700 hover:bg-neutral-100 text-xs font-bold px-4 py-2.5 rounded-full border border-neutral-300 transition">Quần Jeans / Cargo</button>
+        <button onclick="applyFilter('combo')" class="cat-btn bg-white text-neutral-700 hover:bg-neutral-100 text-xs font-bold px-4 py-2.5 rounded-full border border-neutral-300 transition">Set Mix & Match</button>
+      </div>
+    </div>
+
+    <!-- Condition Filter Quick Toggles -->
+    <div class="flex items-center space-x-2 pb-6 text-xs text-neutral-600 border-b border-neutral-200 mb-8 overflow-x-auto">
+      <span class="font-bold whitespace-nowrap"><i class="fa-solid fa-sliders text-brand-accent mr-1"></i> Lọc nhanh độ mới:</span>
+      <button onclick="applyConditionFilter('all')" class="cond-btn font-bold px-3 py-1 bg-neutral-200 text-neutral-800 rounded-lg">Mọi hạng</button>
+      <button onclick="applyConditionFilter('A+')" class="cond-btn px-3 py-1 bg-white border border-neutral-300 text-emerald-800 rounded-lg">Chỉ Hạng A+ (98%)</button>
+      <button onclick="applyConditionFilter('A')" class="cond-btn px-3 py-1 bg-white border border-neutral-300 text-sky-800 rounded-lg">Chỉ Hạng A</button>
+      <button onclick="applyConditionFilter('B')" class="cond-btn px-3 py-1 bg-white border border-neutral-300 text-amber-800 rounded-lg">Chỉ Hạng B (Vintage)</button>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="productGrid">
+
+      <!-- Item 1 -->
+      <div class="product-item group relative bg-white rounded-2xl overflow-hidden border border-neutral-200 shadow-sm hover:shadow-xl transition flex flex-col justify-between" data-category="y2k" data-condition="A+">
+        <a href="product-detail.html?id=denim" class="absolute inset-0 z-10" aria-label="Xem chi tiết Áo Khoác Bò Vintage Sờn Rách Gấu"></a>
+        <div>
+          <div class="relative aspect-square overflow-hidden bg-neutral-100">
+            <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=600&q=80" alt="Vintage Denim Jacket" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 badge-a-plus text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow">Hạng A+ (98%)</span>
+            <span class="absolute top-3 right-3 bg-neutral-900/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded">Levi's 90s</span>
+          </div>
+          <div class="p-4 space-y-1.5">
+            <div class="text-[10px] font-bold text-brand-olive uppercase tracking-wider">Áo Khoác Denim</div>
+            <h3 class="font-bold text-sm text-brand-dark group-hover:text-brand-accent transition truncate">Áo Khoác Bò Vintage Sờn Rách Gấu</h3>
+            <p class="text-xs text-neutral-500 font-mono">Dài 62cm • Ngực 104cm • Vai 46cm</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0">
+          <div class="pt-3 flex items-center justify-between border-t border-neutral-100">
+            <div>
+              <span class="font-extrabold text-base text-brand-accent">240.000đ</span>
+              <span class="text-[10px] text-neutral-400 line-through ml-1">750.000đ</span>
+            </div>
+            <button onclick="event.stopPropagation(); addItemToCart('Áo Khoác Bò Vintage Levi\'s', 240000, 'Hạng A+', 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=150&q=80')" class="relative z-20 bg-brand-primary hover:bg-brand-dark text-white text-xs font-bold px-3.5 py-2 rounded-xl transition active:scale-95">
+              + Giỏ hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="product-item group relative bg-white rounded-2xl overflow-hidden border border-neutral-200 shadow-sm hover:shadow-xl transition flex flex-col justify-between" data-category="tshirt" data-condition="A">
+        <a href="product-detail.html?id=nirvana" class="absolute inset-0 z-10" aria-label="Xem chi tiết Áo Thun Nirvana Rock Band Oversize"></a>
+        <div>
+          <div class="relative aspect-square overflow-hidden bg-neutral-100">
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80" alt="Nirvana Tee" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="badge-a absolute top-3 left-3 text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow">Hạng A (90%)</span>
+            <span class="absolute top-3 right-3 bg-neutral-900/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded">Made in USA</span>
+          </div>
+          <div class="p-4 space-y-1.5">
+            <div class="text-[10px] font-bold text-brand-olive uppercase tracking-wider">Graphic Tee</div>
+            <h3 class="font-bold text-sm text-brand-dark group-hover:text-brand-accent transition truncate">Áo Thun Nirvana Rock Band Oversize</h3>
+            <p class="text-xs text-neutral-500 font-mono">Dài 70cm • Ngực 112cm • Cotton 100%</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0">
+          <div class="pt-3 flex items-center justify-between border-t border-neutral-100">
+            <div>
+              <span class="font-extrabold text-base text-brand-accent">160.000đ</span>
+              <span class="text-[10px] text-neutral-400 line-through ml-1">390.000đ</span>
+            </div>
+            <button onclick="event.stopPropagation(); addItemToCart('Áo Thun Nirvana Rock Band', 160000, 'Hạng A', 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=150&q=80')" class="relative z-20 bg-brand-primary hover:bg-brand-dark text-white text-xs font-bold px-3.5 py-2 rounded-xl transition active:scale-95">
+              + Giỏ hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="product-item group relative bg-white rounded-2xl overflow-hidden border border-neutral-200 shadow-sm hover:shadow-xl transition flex flex-col justify-between" data-category="flannel" data-condition="A+">
+        <a href="product-detail.html?id=flannel" class="absolute inset-0 z-10" aria-label="Xem chi tiết Sơ Mi Dạ Caro Rêu Unisex Dày Dặn"></a>
+        <div>
+          <div class="relative aspect-square overflow-hidden bg-neutral-100">
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80" alt="Flannel Shirt" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="badge-a-plus absolute top-3 left-3 text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow">Hạng A+ (96%)</span>
+            <span class="absolute top-3 right-3 bg-neutral-900/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded">Uniqlo Nhật</span>
+          </div>
+          <div class="p-4 space-y-1.5">
+            <div class="text-[10px] font-bold text-brand-olive uppercase tracking-wider">Sơ Mi Flannel</div>
+            <h3 class="font-bold text-sm text-brand-dark group-hover:text-brand-accent transition truncate">Sơ Mi Dạ Caro Rêu Unisex Dày Dặn</h3>
+            <p class="text-xs text-neutral-500 font-mono">Dài 67cm • Ngực 106cm • Vai 48cm</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0">
+          <div class="pt-3 flex items-center justify-between border-t border-neutral-100">
+            <div>
+              <span class="font-extrabold text-base text-brand-accent">185.000đ</span>
+              <span class="text-[10px] text-neutral-400 line-through ml-1">520.000đ</span>
+            </div>
+            <button onclick="event.stopPropagation(); addItemToCart('Sơ Mi Dạ Caro Uniqlo Nhật', 185000, 'Hạng A+', 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=150&q=80')" class="relative z-20 bg-brand-primary hover:bg-brand-dark text-white text-xs font-bold px-3.5 py-2 rounded-xl transition active:scale-95">
+              + Giỏ hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="product-item group relative bg-white rounded-2xl overflow-hidden border border-neutral-200 shadow-sm hover:shadow-xl transition flex flex-col justify-between" data-category="combo" data-condition="A">
+        <a href="product-detail.html?id=gorpcore" class="absolute inset-0 z-10" aria-label="Xem chi tiết Combo Gorpcore: Parachute Pants + Tee"></a>
+        <div>
+          <div class="relative aspect-square overflow-hidden bg-neutral-100">
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80" alt="Mix and match combo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-brand-accent text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow">Set Mix & Match</span>
+            <span class="absolute top-3 right-3 badge-a text-[10px] font-semibold px-2 py-0.5 rounded">Stylist Pick</span>
+          </div>
+          <div class="p-4 space-y-1.5">
+            <div class="text-[10px] font-bold text-brand-olive uppercase tracking-wider">Trọn Bộ Phối Sẵn</div>
+            <h3 class="font-bold text-sm text-brand-dark group-hover:text-brand-accent transition truncate">Combo Gorpcore: Parachute Pants + Tee</h3>
+            <p class="text-xs text-neutral-500 font-mono">Tặng kèm móc khóa Paracord độc quyền</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0">
+          <div class="pt-3 flex items-center justify-between border-t border-neutral-100">
+            <div>
+              <span class="font-extrabold text-base text-brand-accent">349.000đ</span>
+              <span class="text-[10px] text-neutral-400 line-through ml-1">890.000đ</span>
+            </div>
+            <button onclick="event.stopPropagation(); addItemToCart('Combo Gorpcore Parachute Pants', 349000, 'Hạng A', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=150&q=80')" class="relative z-20 bg-brand-primary hover:bg-brand-dark text-white text-xs font-bold px-3.5 py-2 rounded-xl transition active:scale-95">
+              + Giỏ hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- AI Mix & Match Callout -->
+    <!-- <div class="mt-12 bg-emerald-50 border border-emerald-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-4">
+        <div class="w-14 h-14 bg-brand-primary text-white rounded-2xl flex items-center justify-center text-2xl shadow">
+          <i class="fa-solid fa-wand-magic-sparkles text-emerald-300"></i>
+        </div>
+        <div>
+          <h4 class="font-display font-bold text-brand-dark text-base sm:text-lg">Trợ Lý AI Mix & Match: Bạn đang bí ý tưởng phối đồ?</h4>
+          <p class="text-xs sm:text-sm text-neutral-600 mt-0.5">Tải ảnh chiếc áo sẵn có trong tủ đồ, AI Re-Trend sẽ tự động tìm 3 mẫu quần đồ si vừa khít số đo!</p>
+        </div>
+      </div>
+      <button onclick="triggerAiAssistant()" class="bg-brand-primary hover:bg-brand-dark text-white font-bold text-xs px-6 py-3.5 rounded-xl transition whitespace-nowrap shadow">
+        Trải Nghiệm Gợi Ý AI
+      </button>
+    </div> -->
+
+  </section>
+
+  <!-- ================= 7. CƠ CHẾ KÝ QUỸ SAFEPAY™ ================= -->
+  <section id="safepay" class="py-16 bg-white border-y border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center space-x-2 bg-amber-100 text-amber-900 border border-amber-300 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase mb-3">
+          <i class="fa-solid fa-lock text-brand-accent"></i>
+          <span>Re-Trend SafePay™ • Giải Pháp Ký Quỹ Độc Quyền</span>
+        </div>
+        <!-- <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-dark">KHÔNG LO LỪA CỌC • KHÔNG SỢ HÀNG RÁCH LỖI</h2> -->
+        <h2 class="font-display text-xl sm:text-2xl lg:text-4xl font-extrabold text-brand-dark whitespace-nowrap">
+          KHÔNG LO LỪA CỌC • KHÔNG SỢ HÀNG RÁCH LỖI
+        </h2>
+        <p class="text-neutral-600 text-sm mt-2 leading-relaxed">
+          Chúng tôi xóa tan rủi ro chuyển khoản trước bằng tài khoản ký quỹ trung gian phong tỏa tại ngân hàng. Tiền chỉ được chuyển cho người bán khi người mua đã hoàn toàn hài lòng!
+        </p>
+      </div>
+
+      <!-- 4 Steps Interactive Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
+        <div class="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+          <div class="text-brand-accent font-display font-extrabold text-3xl mb-2">01</div>
+          <h4 class="font-bold text-sm text-brand-dark mb-1.5">Đặt Hàng & Tạm Giữ Tiền</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">
+            Thanh toán qua MoMo/VNPAY/Thẻ. Toàn bộ tiền được giữ trong tài khoản Ký quỹ Đảm bảo (Escrow) của Re-Trend.
+          </p>
+        </div>
+
+        <div class="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+          <div class="text-brand-accent font-display font-extrabold text-3xl mb-2">02</div>
+          <h4 class="font-bold text-sm text-brand-dark mb-1.5">Giao Hàng Đồng Kiểm</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">
+            Hàng được đóng gói cẩn thận, chuyển giao đối tác giao vận (GHN/GHTK) với mã theo dõi hành trình trực tuyến thời gian thực trên app.
+          </p>
+        </div>
+
+        <div class="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+          <!-- <span class="absolute top-4 right-4 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">48 Giờ Vàng</span> -->
+          <div class="text-brand-accent font-display font-extrabold text-3xl mb-2">03</div>
+          <h4 class="font-bold text-sm text-brand-dark mb-1.5">Mặc Thử & Đối Soát</h4>
+          <p class="text-xs text-neutral-600 leading-relaxed">
+            Người mua có 48h để mặc thử và kiểm tra từng đường may. Nếu sai số đo hay có lỗi giấu, bấm <b>Khiếu nại 1 chạm</b> để phong tỏa tiền ngay lập tức.
+          </p>
+        </div>
+
+        <div class="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+          <div class="text-brand-accent font-display font-extrabold text-3xl mb-2">04</div>
+          <h4 class="font-bold text-sm text-brand-dark mb-1.5">Giải Ngân / Bồi Hoàn</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">
+            Khi người mua xác nhận hài lòng, tiền tự động về ví người bán (trừ phí hoa hồng 10-12%). Nếu lỗi xác nhận, Re-Trend bồi hoàn 100% tiền cho người mua.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 8. DỊCH VỤ DỌN TỦ FBR & CÔNG CỤ TÍNH TIỀN ================= -->
+  <section id="consign" class="py-16 bg-[#FAF8F2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Text Description -->
+      <div class="lg:col-span-6 space-y-6">
+        <span class="text-xs font-bold tracking-wider uppercase text-brand-accent">Dịch vụ FBR (Fulfillment by Re-Trend)</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-dark leading-snug">
+          TỦ ĐỒ QUÁ TẢI? <br>
+          GỬI RE-TREND BÁN HỘ, TIỀN TỰ ĐỘNG VỀ VÍ!
+        </h2>
+        
+        <p class="text-neutral-600 text-sm leading-relaxed">
+          Bạn bận rộn thi cử, lười đo size, ngại chụp ảnh và mệt mỏi vì phải trả lời tin nhắn mặc cả? Hãy để đội ngũ chuyên môn Re-Trend chăm sóc từ A - Z.
+        </p>
+
+        <div class="space-y-3.5">
+          <div class="flex items-start space-x-3">
+            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs mt-0.5">✓</div>
+            <span class="text-xs sm:text-sm text-neutral-700"><b>Lấy đồ tận nơi miễn phí:</b> Đặt lịch gom đồ từ 5 món, shipper đến tận ký túc xá/nhà riêng lấy hàng.</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs mt-0.5">✓</div>
+            <span class="text-xs sm:text-sm text-neutral-700"><b>Trạm Drop-off Hub:</b> Hoặc ghé trực tiếp Showroom 150m² tại Sư Vạn Hạnh, Quận 10 để gửi đồ ngay.</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs mt-0.5">✓</div>
+            <span class="text-xs sm:text-sm text-neutral-700"><b>Bán nhanh trên sóng Live:</b> Sản phẩm được Stylist phối set đưa lên các phiên Livestream giờ vàng mỗi đêm.</span>
+          </div>
+        </div>
+
+        <button onclick="openConsignModal()" class="bg-brand-accent hover:bg-orange-600 text-white font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-lg transition active:scale-95">
+          <i class="fa-solid fa-calendar-check mr-2"></i> Đặt Lịch Gom Đồ Ký Gửi Ngay
+        </button>
+      </div>
+
+      <!-- Interactive Consignment Calculator Card -->
+      <div id="calculator" class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-3xl border border-neutral-200/90 shadow-xl">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-10 h-10 bg-amber-100 text-brand-accent rounded-xl flex items-center justify-center text-lg">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-lg text-brand-dark">Công Cụ Ước Tính Tiền Bán Đồ Cũ</h3>
+            <p class="text-xs text-neutral-500">Xem ngay số tiền bạn thu về ví sau khi thanh lý tủ đồ</p>
+          </div>
+        </div>
+
+        <div class="space-y-5 pt-2">
+          <!-- Slider items -->
+          <div>
+            <div class="flex justify-between text-xs font-bold text-neutral-700 mb-2">
+              <span>Số lượng quần áo muốn thanh lý:</span>
+              <span id="sliderValue" class="text-brand-accent font-display text-base">8 món đồ</span>
+            </div>
+            <input type="range" id="clothesSlider" min="3" max="30" value="8" oninput="runCalculator()" class="w-full h-2.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-brand-accent">
+            <div class="flex justify-between text-[10px] text-neutral-400 font-mono mt-1">
+              <span>3 món</span>
+              <span>15 món</span>
+              <span>30 món</span>
+            </div>
+          </div>
+
+          <!-- Category Selector -->
+          <div>
+            <label class="block text-xs font-bold text-neutral-700 mb-1.5">Phân khúc đồ bạn muốn thanh lý:</label>
+            <select id="priceSelect" onchange="runCalculator()" class="w-full text-xs font-semibold border border-neutral-300 rounded-xl px-3.5 py-3 bg-neutral-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-primary">
+              <option value="120000">Đồ hè / Áo thun Graphic, Croptop (~120.000đ/món)</option>
+              <option value="190000" selected>Sơ mi / Váy Vintage / Quần Jeans (~190.000đ/món)</option>
+              <option value="340000">Áo khoác dù / Varsity / Đồ Local Brand xịn (~340.000đ/món)</option>
+            </select>
+          </div>
+
+          <!-- Calculation Result Summary Box -->
+          <div class="bg-neutral-50 border border-neutral-200 p-4 rounded-2xl space-y-2.5">
+            <div class="flex justify-between text-xs text-neutral-600">
+              <span>Tổng giá trị đơn hàng ước tính:</span>
+              <span id="calcTotalGMV" class="font-bold text-neutral-800">1.520.000đ</span>
+            </div>
+            <div class="flex justify-between text-xs text-neutral-600">
+              <span>Phí dịch vụ FBR (giặt hấp, chụp, sàn 12%):</span>
+              <span id="calcFee" class="text-neutral-500 font-mono">- 182.400đ</span>
+            </div>
+            <div class="pt-2.5 border-t border-neutral-200 flex justify-between items-center">
+              <div>
+                <span class="font-bold text-sm text-brand-dark block">Tiền thực nhận về ví:</span>
+                <span class="text-[10px] text-emerald-600 font-medium">Chuyển thẳng MoMo / Ngân hàng</span>
+              </div>
+              <span id="calcPayout" class="font-display font-extrabold text-2xl text-emerald-600">1.337.600đ</span>
+            </div>
+          </div>
+
+          <button onclick="openConsignModal()" class="w-full bg-brand-primary hover:bg-brand-dark text-white font-bold text-xs py-3 rounded-xl transition shadow">
+            Xác Nhận & Đặt Lịch Gom Túi Này
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 9. TRẠM HUB & SHOWROOM TRẢI NGHIỆM ================= -->
+  <section id="hub" class="py-16 bg-white border-t border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-brand-primary to-brand-olive rounded-3xl p-8 sm:p-12 text-white shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-8 space-y-4">
+          <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Không Gian Trải Nghiệm O2O</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold leading-tight">
+            GHÉ TRẠM RE-TREND HUB QUẬN 10 (150m²)
+          </h2>
+          <p class="text-neutral-200 text-sm leading-relaxed max-w-2xl">
+            Mặt tiền đường <b>Sư Vạn Hạnh, Phường 12, Quận 10, TP.HCM</b> (ngay khu ẩm thực và sát vách các trường UEH, HUFLIT, Y Phạm Ngọc Thạch). Đến trải nghiệm:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-neutral-200 pt-2">
+            <div>• Phòng thử đồ thông minh trang bị gương nịnh dáng check-in</div>
+            <div>• Trạm Drop-off tự động gửi quần áo thanh lý không cần hẹn</div>
+            <div>• Mắt thấy tai nghe quy trình giặt sấy khử khuẩn UV tầng 1</div>
+            <div>• Thử trực tiếp hàng ngàn set đồ vintage độc bản có sẵn</div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center space-y-3">
+          <div class="text-2xl font-bold font-display">Giờ Mở Cửa</div>
+          <p class="text-sm font-mono text-emerald-300 font-bold">09:00 Sáng — 22:00 Tối (Tất cả các ngày)</p>
+          <p class="text-xs text-neutral-300">Hotline hỗ trợ: 1900 xxxx</p>
+          <button onclick="alert('Đã mở bản đồ chỉ đường đến 150m² Sư Vạn Hạnh, Quận 10!')" class="w-full bg-white text-brand-primary hover:bg-neutral-100 font-bold text-xs py-2.5 rounded-xl transition shadow">
+            <i class="fa-solid fa-map-location-dot mr-1"></i> Mở Google Maps Chỉ Đường
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 10. FOOTER ================= -->
+  <footer class="bg-brand-dark text-white pt-16 pb-12 border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+      
+      <!-- Col 1 -->
+      <div class="space-y-4">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-9 h-9 bg-brand-accent rounded-xl flex items-center justify-center font-display font-extrabold text-xl text-white">R</div>
+          <span class="font-display font-extrabold text-xl tracking-tight">RE-TREND<span class="text-brand-accent">.</span></span>
+        </div>
+        <p class="text-xs text-neutral-400 leading-relaxed">
+          Nền tảng thương mại điện tử chuyên biệt thời trang second-hand tuyển chọn, bảo vệ giao dịch và thúc đẩy tiêu dùng thời trang tuần hoàn văn minh tại Việt Nam.
+        </p>
+        <div class="text-xs text-neutral-400 space-y-1">
+          <p><b>Đơn vị nghiên cứu:</b> Đại học Kinh tế</p>
+          <p><b>Học phần:</b> Thương mại điện tử (GVHD: TS. Thái Kim Phụng)</p>
+          <p><b>Nhóm thực hiện:</b> Nhóm 01 – Dự án Re-Trend</p>
+        </div>
+      </div>
+
+      <!-- Col 2 -->
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-sm tracking-wider uppercase text-neutral-200">Khám Phá Nền Tảng</h4>
+        <ul class="text-xs text-neutral-400 space-y-2">
+          <li><a href="#catalog" class="hover:text-white transition">Săn đồ si tuyển chọn (B2C)</a></li>
+          <li><a href="#consign" class="hover:text-white transition">Dịch vụ dọn tủ trọn gói (FBR)</a></li>
+          <li><a href="#live-shopping" class="hover:text-white transition">Lịch phát sóng Livestream</a></li>
+          <li><a href="#safepay" class="hover:text-white transition">Cơ chế Ký quỹ SafePay™</a></li>
+          <li><a href="#calculator" class="hover:text-white transition">Bảng tính tiền thanh lý đồ cũ</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-sm tracking-wider uppercase text-neutral-200">Hub & Trạm Drop-off</h4>
+        <p class="text-xs text-neutral-400 leading-relaxed">
+          <b>Hub Sài Gòn (150m²):</b> Mặt tiền đường Sư Vạn Hạnh, Phường 12, Quận 10, TP. Hồ Chí Minh.<br>
+          (Khu vực tiếp nhận đồ ký gửi tự động & Showroom thử đồ thông minh).
+        </p>
+        <p class="text-xs text-neutral-400">
+          <b>Email:</b> supportretrend@.vn<br>
+          <b>Hotline Trọng tài SafePay:</b> 1900 xxxx (Hỗ trợ 24/7)
+        </p>
+      </div>
+
+      <!-- Col 4 -->
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-sm tracking-wider uppercase text-neutral-200">Tuân Thủ Pháp Lý</h4>
+        <p class="text-xs text-neutral-400 leading-relaxed">
+          Đăng ký Sàn giao dịch TMĐT tuân thủ Nghị định 52/2013/NĐ-CP & Nghị định 85/2021/NĐ-CP. Bảo mật dữ liệu cá nhân theo Nghị định 13/2023/NĐ-CP.
+        </p>
+        <div class="pt-2 flex items-center space-x-4 text-2xl text-neutral-400">
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-neutral-800 text-center text-xs text-neutral-500">
+      © 2026 Dự án RE-TREND.
+    </div>
+  </footer>
+
+
+  <!-- ================= PRODUCT DETAIL MODAL ================= -->
+  <div id="productDetailModal" class="fixed inset-0 z-[60] hidden bg-black/60 backdrop-blur-sm overflow-y-auto p-4 sm:p-8" onclick="if(event.target===this) closeProductDetail()">
+    <div class="relative max-w-5xl mx-auto my-4 sm:my-8 bg-[#FAF8F2] rounded-3xl overflow-hidden shadow-2xl border border-neutral-200">
+      <button onclick="closeProductDetail()" aria-label="Đóng chi tiết sản phẩm" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/95 border border-neutral-200 text-neutral-700 hover:bg-brand-accent hover:text-white transition text-xl shadow-sm">&times;</button>
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="bg-[#F3EFE6] p-4 sm:p-8">
+          <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-100 shadow-sm">
+            <img id="detailImage" src="" alt="" class="w-full h-full object-cover">
+          </div>
+          <div class="mt-4 flex items-center gap-2 text-xs text-brand-primary font-semibold">
+            <i class="fa-solid fa-shield-halved text-brand-accent"></i>
+            Đã qua tuyển chọn • Kiểm tra tình trạng minh bạch
+          </div>
+        </div>
+        <div class="p-6 sm:p-10 flex flex-col">
+          <span id="detailCategory" class="text-xs font-bold tracking-widest uppercase text-brand-accent"></span>
+          <h2 id="detailTitle" class="font-display text-2xl sm:text-3xl font-extrabold text-brand-dark mt-2 leading-tight pr-8"></h2>
+          <div class="flex flex-wrap items-center gap-2 mt-4">
+            <span id="detailCondition" class="text-xs font-extrabold px-3 py-1.5 rounded-full"></span>
+            <span class="text-xs bg-white border border-neutral-200 text-neutral-600 px-3 py-1.5 rounded-full"><i class="fa-solid fa-shirt mr-1 text-brand-olive"></i> Độc bản</span>
+          </div>
+          <div class="mt-5 flex items-end gap-3">
+            <span id="detailPrice" class="font-display font-extrabold text-3xl text-brand-accent"></span>
+            <span id="detailOldPrice" class="text-sm text-neutral-400 line-through mb-1"></span>
+          </div>
+          <p id="detailDescription" class="text-sm text-neutral-600 leading-relaxed mt-5"></p>
+          <div class="mt-6 rounded-2xl bg-white border border-neutral-200 p-4">
+            <h3 class="font-bold text-sm text-brand-dark mb-3"><i class="fa-solid fa-ruler-combined text-brand-accent mr-2"></i>Thông tin sản phẩm</h3>
+            <div id="detailSpecs" class="space-y-2 text-sm text-neutral-600"></div>
+          </div>
+          <div class="mt-5 space-y-2 text-xs text-neutral-600">
+            <p><i class="fa-solid fa-spray-can-sparkles text-emerald-700 mr-2"></i>Được làm sạch và xử lý theo quy trình tuyển chọn Re-Trend.</p>
+            <p><i class="fa-solid fa-box-open text-emerald-700 mr-2"></i>Đóng gói cẩn thận, sẵn sàng giao hàng.</p>
+            <p><i class="fa-solid fa-shield-halved text-emerald-700 mr-2"></i>Giao dịch được giới thiệu với cơ chế bảo vệ SafePay™.</p>
+          </div>
+          <div class="mt-auto pt-7 flex flex-col sm:flex-row gap-3">
+            <button id="detailAddButton" class="flex-1 bg-brand-primary hover:bg-brand-dark text-white font-bold text-sm py-3.5 px-5 rounded-xl transition shadow-md">
+              <i class="fa-solid fa-bag-shopping mr-2"></i>Thêm vào giỏ hàng
+            </button>
+            <button onclick="closeProductDetail()" class="bg-white hover:bg-neutral-100 border border-neutral-300 text-brand-dark font-bold text-sm py-3.5 px-5 rounded-xl transition">Tiếp tục xem đồ</button>
+          </div>
+          <p class="text-[10px] text-neutral-400 mt-4">Lưu ý: Sản phẩm second-hand có thể có dấu hiệu sử dụng tự nhiên; vui lòng xem kỹ ảnh và số đo trước khi đặt hàng.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 11. SLIDE-OVER CART DRAWER ================= -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex justify-end">
+    <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col p-6 transition-transform duration-300">
+      
+      <div class="flex justify-between items-center pb-4 border-b border-neutral-200">
+        <div>
+          <h3 class="font-display font-bold text-lg text-brand-dark">Giỏ Hàng Re-Trend</h3>
+          <span class="text-[11px] text-emerald-600 font-semibold flex items-center">
+            <i class="fa-solid fa-shield-halved mr-1"></i> Bảo chứng SafePay™ 48h
+          </span>
+        </div>
+        <button onclick="toggleCartDrawer()" class="text-neutral-400 hover:text-neutral-700 text-2xl p-1">&times;</button>
+      </div>
+
+      <!-- Item List Container -->
+      <div id="cartItemList" class="flex-1 overflow-y-auto py-4 space-y-3">
+        <!-- Rendered via JavaScript -->
+      </div>
+
+      <!-- Promo code and Checkout section -->
+      <div class="pt-4 border-t border-neutral-200 space-y-3">
+        <div class="flex gap-2">
+          <input type="text" id="promoInput" placeholder="Nhập mã UEHGREEN (-20k)" class="flex-1 text-xs border border-neutral-300 rounded-xl px-3 py-2 uppercase font-mono focus:outline-none focus:ring-1 focus:ring-brand-primary">
+          <button onclick="applyPromoCode()" class="bg-neutral-800 hover:bg-black text-white text-xs font-bold px-3 py-2 rounded-xl transition">Áp Dụng</button>
+        </div>
+
+        <div class="space-y-1.5 text-xs text-neutral-600 pt-1">
+          <div class="flex justify-between">
+            <span>Tạm tính:</span>
+            <span id="cartSubtotal" class="font-mono font-bold text-brand-dark">0đ</span>
+          </div>
+          <div class="flex justify-between text-emerald-600 font-semibold">
+            <span>Giảm giá mã ưu đãi:</span>
+            <span id="cartDiscount">0đ</span>
+          </div>
+          <div class="flex justify-between text-sm font-bold text-brand-dark pt-1 border-t border-neutral-100">
+            <span>Tổng cộng (SafePay):</span>
+            <span id="cartTotal" class="font-mono text-brand-accent text-base">0đ</span>
+          </div>
+        </div>
+
+        <button onclick="checkoutSafePay()" class="w-full bg-brand-primary hover:bg-brand-dark text-white font-bold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-lock text-brand-accent"></i>
+          <span>Thanh Toán SafePay™ (MoMo / VNPAY)</span>
+        </button>
+
+        <p class="text-[10px] text-neutral-400 text-center">Tiền của bạn được phong tỏa 48h, chỉ giải ngân khi bạn hài lòng.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= 12. SEARCH MODAL ================= -->
+  <div id="searchModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl space-y-4">
+      <div class="flex justify-between items-center">
+        <h3 class="font-display font-bold text-lg text-brand-dark">Tìm Kiếm Thông Minh Chuẩn Size</h3>
+        <button onclick="closeSearchModal()" class="text-neutral-400 hover:text-neutral-700 text-xl">&times;</button>
+      </div>
+
+      <div class="space-y-3">
+        <input type="text" id="searchInput" placeholder="Nhập phong cách (Y2K, Vintage, Gorpcore) hoặc số đo eo..." class="w-full text-xs sm:text-sm border border-neutral-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-primary">
+        
+        <div class="text-xs text-neutral-500">
+          <span class="font-bold">Gợi ý tìm nhanh:</span>
+          <div class="flex flex-wrap gap-1.5 mt-2">
+            <button onclick="searchTag('Y2K Denim')" class="bg-neutral-100 hover:bg-neutral-200 px-2.5 py-1 rounded-lg">#Y2K Denim</button>
+            <button onclick="searchTag('Sơ mi flannel')" class="bg-neutral-100 hover:bg-neutral-200 px-2.5 py-1 rounded-lg">#Sơ mi Flannel</button>
+            <button onclick="searchTag('Eo 68cm')" class="bg-neutral-100 hover:bg-neutral-200 px-2.5 py-1 rounded-lg">#Eo 68cm</button>
+            <button onclick="searchTag('Hạng A+')" class="bg-neutral-100 hover:bg-neutral-200 px-2.5 py-1 rounded-lg">#Hạng A+</button>
+          </div>
+        </div>
+
+        <button onclick="executeSearch()" class="w-full bg-brand-primary hover:bg-brand-dark text-white font-bold text-xs py-3 rounded-xl transition shadow">
+          Tìm Kiếm Sản Phẩm Ngay
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 13. CONSIGN BOOKING MODAL ================= -->
+  <div id="consignModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-4">
+      <div class="flex justify-between items-center">
+        <h3 class="font-display font-bold text-lg text-brand-dark">Đặt Lịch Gom Đồ Dọn Tủ FBR</h3>
+        <button onclick="closeConsignModal()" class="text-neutral-400 hover:text-neutral-700 text-xl">&times;</button>
+      </div>
+
+      <p class="text-xs text-neutral-500">Shipper của Re-Trend sẽ mang thùng giấy kraft sinh học đến tận phòng bạn để nhận đồ.</p>
+
+      <form onsubmit="submitConsignForm(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-neutral-700 mb-1">Họ và tên của bạn:</label>
+          <input type="text" required placeholder="Nguyễn Văn A" class="w-full border border-neutral-300 rounded-xl p-2.5 focus:outline-none focus:ring-1 focus:ring-brand-primary">
+        </div>
+        <div>
+          <label class="block font-bold text-neutral-700 mb-1">Số điện thoại liên hệ (Zalo):</label>
+          <input type="tel" required placeholder="0901 xxx xxx" class="w-full border border-neutral-300 rounded-xl p-2.5 focus:outline-none focus:ring-1 focus:ring-brand-primary">
+        </div>
+        <div>
+          <label class="block font-bold text-neutral-700 mb-1">Địa chỉ phòng trọ / nhà riêng tại TP.HCM:</label>
+          <input type="text" required placeholder="Số nhà, đường, Phường, Quận..." class="w-full border border-neutral-300 rounded-xl p-2.5 focus:outline-none focus:ring-1 focus:ring-brand-primary">
+        </div>
+        <div>
+          <label class="block font-bold text-neutral-700 mb-1">Số lượng món ước tính:</label>
+          <input type="number" min="3" max="50" value="8" class="w-full border border-neutral-300 rounded-xl p-2.5 focus:outline-none focus:ring-1 focus:ring-brand-primary">
+        </div>
+
+        <button type="submit" class="w-full bg-brand-accent hover:bg-orange-600 text-white font-bold text-xs py-3.5 rounded-xl transition shadow mt-2">
+          Xác Nhận Đặt Lịch (Miễn Phí Lấy Hàng)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-brand-dark text-white text-xs font-semibold px-4 py-3 rounded-2xl shadow-2xl border border-neutral-700 hidden flex items-center space-x-2">
+    <i class="fa-solid fa-circle-check text-emerald-400"></i>
+    <span id="toastMessage">Thông báo</span>
+  </div>
+
+  <!-- ================= 14. JAVASCRIPT LOGIC ================= -->
+  <script>
+
+    // Product detail view for items in "Bộ sưu tập tuyển chọn hôm nay"
+    function openProductDetail(card) {
+      const image = card.querySelector('img');
+      const title = card.querySelector('h3')?.innerText || 'Sản phẩm Re-Trend';
+      const category = card.querySelector('.p-4 .text-brand-olive')?.innerText || 'Thời trang second-hand';
+      const condition = card.querySelector('.badge-a-plus, .badge-a, .badge-b, .bg-brand-accent')?.innerText || 'Sản phẩm tuyển chọn';
+      const priceEl = card.querySelector('.text-brand-accent.font-extrabold');
+      const oldPriceEl = card.querySelector('.line-through');
+      const specEl = card.querySelector('p.text-xs.text-neutral-500.font-mono');
+      const priceText = priceEl ? priceEl.innerText : '';
+      const oldPriceText = oldPriceEl ? oldPriceEl.innerText : '';
+      const imageUrl = image ? image.src : '';
+      const addButton = card.querySelector('button[onclick*="addItemToCart"]');
+      const onclickText = addButton ? addButton.getAttribute('onclick') : '';
+      const match = onclickText.match(/addItemToCart\('((?:\\'|[^'])*)',\s*(\d+),\s*'([^']*)',\s*'([^']*)'/);
+      let productTitle = match ? match[1].replace(/\\'/g, "'") : title;
+      let productPrice = match ? Number(match[2]) : Number((priceText || '').replace(/[^\d]/g, ''));
+      let productCondition = match ? match[3] : condition;
+      let productImage = match ? match[4] : imageUrl;
+      document.getElementById('detailImage').src = imageUrl;
+      document.getElementById('detailImage').alt = title;
+      document.getElementById('detailTitle').innerText = title;
+      document.getElementById('detailCategory').innerText = category;
+      document.getElementById('detailCondition').innerText = condition;
+      document.getElementById('detailCondition').className = 'text-xs font-extrabold px-3 py-1.5 rounded-full ' +
+        (condition.includes('A+') ? 'badge-a-plus' : condition.includes('A (') || condition.includes('Hạng A') ? 'badge-a' : 'badge-b');
+      document.getElementById('detailPrice').innerText = priceText;
+      document.getElementById('detailOldPrice').innerText = oldPriceText;
+      document.getElementById('detailDescription').innerText =
+        title.includes('Combo') ? 'Một set phối sẵn dành cho phong cách năng động. Xem thông tin đi kèm và phối cùng các món đồ yêu thích để tạo dấu ấn riêng.' :
+        'Món đồ second-hand được Re-Trend tuyển chọn cho phong cách cá nhân. Tham khảo tình trạng và số đo bên dưới để cân nhắc độ vừa vặn trước khi mua.';
+      const specs = specEl ? specEl.innerText.split(' • ') : [];
+      document.getElementById('detailSpecs').innerHTML = specs.length
+        ? specs.map((spec, i) => `<div class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-700 mt-1"></i><span>${spec}</span></div>`).join('')
+        : '<div class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-700 mt-1"></i><span>Set phối sẵn, có phụ kiện đi kèm như mô tả sản phẩm.</span></div>';
+      document.getElementById('detailAddButton').onclick = function() {
+        addItemToCart(productTitle, productPrice, productCondition, productImage);
+        closeProductDetail();
+      };
+      document.getElementById('productDetailModal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeProductDetail() {
+      document.getElementById('productDetailModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // State management for Cart
+    let cart = [
+      {
+        id: 1,
+        title: "Áo Khoác Bò Vintage Levi's",
+        price: 240000,
+        condition: "Hạng A+ (98%)",
+        image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=150&q=80"
+      },
+      {
+        id: 2,
+        title: "Áo Thun Nirvana Rock Band Mỹ",
+        price: 160000,
+        condition: "Hạng A (90%)",
+        image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=150&q=80"
+      }
+    ];
+
+    let discountAmount = 0;
+
+    // Countdown Timer Logic
+    let sec = 45;
+    let min = 38;
+    let hr = 1;
+
+    setInterval(() => {
+      if (sec > 0) {
+        sec--;
+      } else {
+        sec = 59;
+        if (min > 0) min--;
+        else {
+          min = 59;
+          if (hr > 0) hr--;
+        }
+      }
+      document.getElementById('timerSecs').innerText = sec < 10 ? '0' + sec : sec;
+      document.getElementById('timerMins').innerText = min < 10 ? '0' + min : min;
+      document.getElementById('timerHours').innerText = hr < 10 ? '0' + hr : hr;
+    }, 1000);
+
+    // Filter Logic: Category
+    function applyFilter(cat) {
+      const items = document.querySelectorAll('.product-item');
+      const buttons = document.querySelectorAll('.cat-btn');
+
+      buttons.forEach(b => {
+        b.classList.remove('bg-brand-primary', 'text-white', 'active');
+        b.classList.add('bg-white', 'text-neutral-700');
+      });
+      event.target.classList.add('bg-brand-primary', 'text-white', 'active');
+      event.target.classList.remove('bg-white', 'text-neutral-700');
+
+      items.forEach(item => {
+        if (cat === 'all' || item.getAttribute('data-category') === cat) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Filter Logic: Condition
+    function applyConditionFilter(cond) {
+      const items = document.querySelectorAll('.product-item');
+      const buttons = document.querySelectorAll('.cond-btn');
+
+      buttons.forEach(b => b.classList.remove('font-bold', 'bg-neutral-200'));
+      event.target.classList.add('font-bold', 'bg-neutral-200');
+
+      items.forEach(item => {
+        if (cond === 'all' || item.getAttribute('data-condition') === cond) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Calculator Logic
+    function runCalculator() {
+      const count = parseInt(document.getElementById('clothesSlider').value);
+      const price = parseInt(document.getElementById('priceSelect').value);
+      document.getElementById('sliderValue').innerText = count + ' món đồ';
+
+      const totalGMV = count * price;
+      const fee = totalGMV * 0.12;
+      const payout = totalGMV - fee;
+
+      document.getElementById('calcTotalGMV').innerText = totalGMV.toLocaleString('vi-VN') + 'đ';
+      document.getElementById('calcFee').innerText = '- ' + fee.toLocaleString('vi-VN') + 'đ';
+      document.getElementById('calcPayout').innerText = payout.toLocaleString('vi-VN') + 'đ';
+    }
+
+    // Cart Management
+    function renderCart() {
+      const list = document.getElementById('cartItemList');
+      const badge = document.getElementById('cartBadge');
+      list.innerHTML = '';
+
+      badge.innerText = cart.length;
+
+      let subtotal = 0;
+      cart.forEach((item, index) => {
+        subtotal += item.price;
+        list.innerHTML += `
+          <div class="flex items-center space-x-3 bg-neutral-50 p-3 rounded-2xl border border-neutral-200">
+            <img src="${item.image}" class="w-14 h-14 rounded-xl object-cover">
+            <div class="flex-1 text-xs">
+              <h5 class="font-bold text-brand-dark">${item.title}</h5>
+              <span class="inline-block text-[9px] font-semibold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded mt-0.5">${item.condition}</span>
+              <div class="text-brand-accent font-extrabold mt-1">${item.price.toLocaleString('vi-VN')}đ</div>
+            </div>
+            <button onclick="removeItemFromCart(${index})" class="text-neutral-400 hover:text-red-500 text-sm p-1.5">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        `;
+      });
+
+      if (cart.length === 0) {
+        list.innerHTML = `<div class="text-center py-12 text-xs text-neutral-400">Giỏ hàng của bạn đang trống.<br>Hãy săn đồ độc bản ngay hôm nay!</div>`;
+      }
+
+      const total = Math.max(0, subtotal - discountAmount);
+      document.getElementById('cartSubtotal').innerText = subtotal.toLocaleString('vi-VN') + 'đ';
+      document.getElementById('cartDiscount').innerText = discountAmount > 0 ? ('- ' + discountAmount.toLocaleString('vi-VN') + 'đ') : '0đ';
+      document.getElementById('cartTotal').innerText = total.toLocaleString('vi-VN') + 'đ';
+    }
+
+    function addItemToCart(title, price, condition, image) {
+      cart.push({ id: Date.now(), title, price, condition, image });
+      renderCart();
+      showQuickToast(`Đã thêm "${title}" vào giỏ hàng bảo chứng SafePay!`);
+    }
+
+    function removeItemFromCart(index) {
+      cart.splice(index, 1);
+      renderCart();
+      showQuickToast('Đã bỏ sản phẩm khỏi giỏ hàng.');
+    }
+
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cartDrawer');
+      drawer.classList.toggle('hidden');
+      renderCart();
+    }
+
+    function applyPromoCode() {
+      const code = document.getElementById('promoInput').value.trim().toUpperCase();
+      if (code === 'UEHGREEN') {
+        discountAmount = 20000;
+        renderCart();
+        showQuickToast('Áp dụng thành công mã UEHGREEN giảm ngay 20.000đ!');
+      } else {
+        alert('Mã không hợp lệ! Hãy thử nhập mã: UEHGREEN');
+      }
+    }
+
+    function checkoutSafePay() {
+      if (cart.length === 0) {
+        alert('Giỏ hàng trống! Hãy chọn ít nhất 1 món đồ.');
+        return;
+      }
+      alert('Đang kết nối cổng thanh toán MoMo / VNPAY an toàn...\nToàn bộ tiền được phong tỏa tại tài khoản Ký Quỹ SafePay™ trong 48h để bảo vệ người mua!');
+      toggleCartDrawer();
+    }
+
+    // Modal controls
+    function openSearchModal() { document.getElementById('searchModal').classList.remove('hidden'); }
+    function closeSearchModal() { document.getElementById('searchModal').classList.add('hidden'); }
+    function searchTag(tag) { document.getElementById('searchInput').value = tag; }
+    function executeSearch() {
+      const q = document.getElementById('searchInput').value;
+      closeSearchModal();
+      showQuickToast(`Đang lọc hệ thống cho từ khóa: "${q}"`);
+    }
+
+    function openConsignModal() { document.getElementById('consignModal').classList.remove('hidden'); }
+    function closeConsignModal() { document.getElementById('consignModal').classList.add('hidden'); }
+    function submitConsignForm(e) {
+      e.preventDefault();
+      closeConsignModal();
+      alert('Đăng ký dọn tủ thành công! Đội ngũ Re-Trend Hub sẽ liên hệ qua Zalo trong vòng 30 phút để xác nhận lịch lấy đồ.');
+    }
+
+    function triggerAiAssistant() {
+      alert('Tính năng AI Trợ lý Stylist: Tải ảnh đồ bạn có trong tủ đồ và hệ thống đang quét mã màu để đề xuất set phối đồ tương ứng!');
+    }
+
+    function showQuickToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMessage').innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => { toast.classList.add('hidden'); }, 3000);
+    }
+
+    // Initialize initial cart
+    renderCart();
+    runCalculator();
+  </script>
+</body>
+</html>
